@@ -8,6 +8,13 @@ variable auth-ssh {
   }
 }
 
+###family vars
+variable vm_web_image_name {
+  type = string
+  default = "ubuntu-2004-lts"
+  description = "ubuntu"
+}
+
 
 ###yandex_compute_image vars
 variable "vm_yc_image" {
