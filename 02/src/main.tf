@@ -13,10 +13,12 @@ data "yandex_compute_image" "ubuntu" {
   family = "ubuntu-2004-lts"
 }
 
-resource "yandex_compute_instance" "default" {
-  name        = var.vm_web_vmname
+resource "yandex_compute_instance" "vm_web" {
+# name        = var.vm_web_vmname
+  name        = "${local.web}"
   platform_id = "standard-v1"
-  
+  allow_stopping_for_update = true
+
   resources {
     cores  = var.vm_web_cores
     memory = var.vm_web_mem
@@ -41,18 +43,20 @@ resource "yandex_compute_instance" "default" {
     ssh-keys           = "ubuntu:${var.vms_ssh_root_key}"
   }
 
-}
+  }
 
-resource "yandex_compute_instance" "vw_db" {
-  name        = var.vm_db_vmname
-  platform_id = "standard-v1"
-  
+resource "yandex_compute_instance" "vm_db" {
+  # name        = var.vm_db_vmname
+    name        = "${local.db}"
+    platform_id = "standard-v1"
+    allow_stopping_for_update = true
+
   resources {
     cores  = var.vm_db_cores
     memory = var.vm_db_mem
     core_fraction = var.vm_db_frac
   }
-
+  
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.ubuntu.image_id
@@ -70,6 +74,8 @@ resource "yandex_compute_instance" "vw_db" {
     serial-port-enable = 1
     ssh-keys           = "ubuntu:${var.vms_ssh_root_key}"
   }
-
+  
 }
+
+
 

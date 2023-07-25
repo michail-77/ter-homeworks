@@ -63,18 +63,15 @@ variable "vm_db_frac" {
   default     = 20
   description = "fraction" 
 }
-
-#Объявите в файле outputs.tf output типа map, содержащий { instance_name = external_ip } для каждой из ВМ.
-
-###external_ip vars
-variable  "external_ip_vnweb"{
-  type        = map
-  default     = "158.160.114.250"
-  description = "external_ip_vnweb"
+##name VM vars
+variable "vm_web_web" {
+  type        = string
+  default     = "netology-develop-platform-web"
+  description = "vm1 name"
 }
 
-variable  "external_ip_vndb"{
-  type        = map
-  default     = "158.160.43.134"
-  description = "external_ip_vndb"
+variable "vm_web_db" {
+  type        = string
+  default     = "netology-develop-platform-db"
+  description = "vm2 name"
 }
