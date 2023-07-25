@@ -25,27 +25,6 @@ variable "vm_web_vmname" {
 }
 
 
-/* 
-variable "vm_web_cores" {
-  type        = number
-  default     = 2
-  description = "cores" 
-}
-
-variable "vm_web_mem" {
-  type        = number
-  default     = 1
-  description = "memory" 
-}
-
-variable "vm_web_frac" {
-  type        = number
-  default     = 5
-  description = "fraction" 
-}
- */
-
-
 variable "vm_web_resources"{
 type = map
 default = {
