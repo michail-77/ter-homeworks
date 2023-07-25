@@ -40,26 +40,6 @@ variable "vm_db_vmname" {
   description = "vmname_db"
 }
 
-/* 
-  variable "vm_db_cores" {
-  type        = number
-  default     = 2
-  description = "cores" 
-}
-
-variable "vm_db_mem" {
-  type        = number
-  default     = 2
-  description = "memory" 
-}
-
-variable "vm_db_frac" {
-  type        = number
-  default     = 20
-  description = "fraction" 
-} 
-*/
-
 variable "vm_db_resources"{
 type = map
 default = {
