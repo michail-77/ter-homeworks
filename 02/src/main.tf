@@ -15,14 +15,14 @@ data "yandex_compute_image" "ubuntu" {
 
 resource "yandex_compute_instance" "vm_web" {
 # name        = var.vm_web_vmname
-  name        = "${local.web}"
+  name = "${ local.org }-${ local.project }-${ local.instance }-web"
   platform_id = "standard-v1"
   allow_stopping_for_update = true
 
   resources {
-    cores  = var.vm_web_cores
-    memory = var.vm_web_mem
-    core_fraction = var.vm_web_frac
+    cores  = var.vm_web_resources.cores
+    memory = var.vm_web_resources.memory
+    core_fraction = var.vm_web_resources.core_fraction
   }
 
   boot_disk {
@@ -38,23 +38,27 @@ resource "yandex_compute_instance" "vm_web" {
     nat       = true
   }
 
+metadata  =  var.auth-ssh
+
+/* 
   metadata = {
     serial-port-enable = 1
     ssh-keys           = "ubuntu:${var.vms_ssh_root_key}"
   }
-
+ */
+ 
   }
 
 resource "yandex_compute_instance" "vm_db" {
-  # name        = var.vm_db_vmname
-    name        = "${local.db}"
-    platform_id = "standard-v1"
-    allow_stopping_for_update = true
+# name        = var.vm_db_vmname
+  name = "${ local.org }-${ local.project }-${ local.instance }-db"
+  platform_id = "standard-v1"
+  allow_stopping_for_update = true
 
   resources {
-    cores  = var.vm_db_cores
-    memory = var.vm_db_mem
-    core_fraction = var.vm_db_frac
+    cores  = var.vm_db_resources.cores
+    memory = var.vm_db_resources.memory
+    core_fraction = var.vm_db_resources.core_fraction
   }
   
   boot_disk {
@@ -70,10 +74,8 @@ resource "yandex_compute_instance" "vm_db" {
     nat       = true
   }
 
-  metadata = {
-    serial-port-enable = 1
-    ssh-keys           = "ubuntu:${var.vms_ssh_root_key}"
-  }
+  metadata  =  var.auth-ssh
+  
   
 }
 
