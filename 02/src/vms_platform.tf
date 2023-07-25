@@ -4,18 +4,11 @@ variable auth-ssh {
   type = map
   default = {
    serial-port-enable = 1 
-   ssh-keys = "ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQh+usb9TFobAuMH+pq+tUuGEzPFl4GY3JJBdZo+LVLy+5T5Y/3i+2Cf7NBsILwcEogDNncO0GO0mNiR+FiUTZcbUBbgvpDKKEW+kjBgoIMi9Y91iGrlAi6cixj64jCwt110N4VDCEgurMscjTx8Hp9LDfefGDVElJXLQMjOcWwKgMiiiJU2YTXwUC/WTIv0qfplGZuo2PUtY9IAOt+APQKl4jiNXqfjw+8WunV553bP0Df7pZymhhsJ4HNr6oJ30Za+nI8dc/eyqTwpZQRrTgXY8MC2XG1Iqt+aC1++3lYch01YZS04QJDdsidjznuM37+rpzNdyrd/ENdUvPBRzx user@localhost.localdomain"
+   ssh-keys = "ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQAB..........7+rpzNdyrd/ENdUvPBRzx user@localhost.localdomain"
   }
 }
 
 
-/* 
-variable "vms_ssh_root_key" {
-  type        = string
-  default     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQh+usb9TFobAuMH+pq+tUuGEzPFl4GY3JJBdZo+LVLy+5T5Y/3i+2Cf7NBsILwcEogDNncO0GO0mNiR+FiUTZcbUBbgvpDKKEW+kjBgoIMi9Y91iGrlAi6cixj64jCwt110N4VDCEgurMscjTx8Hp9LDfefGDVElJXLQMjOcWwKgMiiiJU2YTXwUC/WTIv0qfplGZuo2PUtY9IAOt+APQKl4jiNXqfjw+8WunV553bP0Df7pZymhhsJ4HNr6oJ30Za+nI8dc/eyqTwpZQRrTgXY8MC2XG1Iqt+aC1++3lYch01YZS04QJDdsidjznuM37+rpzNdyrd/ENdUvPBRzx user@localhost.localdomain"
-  description = "ssh-keygen -t ed25519"
-}
- */
 ###yandex_compute_image vars
 variable "vm_yc_image" {
   type        = string
