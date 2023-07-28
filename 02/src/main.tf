@@ -14,7 +14,6 @@ data "yandex_compute_image" "ubuntu" {
 }
 
 resource "yandex_compute_instance" "vm_web" {
-# name        = var.vm_web_vmname
   name = "${ local.org }-${ local.project }-${ local.instance }-web"
   platform_id = "standard-v1"
   allow_stopping_for_update = true
@@ -40,17 +39,9 @@ resource "yandex_compute_instance" "vm_web" {
 
 metadata  =  var.auth-ssh
 
-/* 
-  metadata = {
-    serial-port-enable = 1
-    ssh-keys           = "ubuntu:${var.vms_ssh_root_key}"
-  }
- */
-
   }
 
 resource "yandex_compute_instance" "vm_db" {
-# name        = var.vm_db_vmname
   name = "${ local.org }-${ local.project }-${ local.instance }-db"
   platform_id = "standard-v1"
   allow_stopping_for_update = true
